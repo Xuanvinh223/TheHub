@@ -1,4 +1,4 @@
-import { database, ref, set, push, remove, onValue } from '/module/firebase.js';
+import { database, ref, set, push, remove, onValue } from '/module/firebases.js';
 
 const app = angular.module('myApp', []);
 
