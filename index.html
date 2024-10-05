@@ -2,9 +2,8 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js"> <!--<![endif]-->
-
+<!--[if gt IE 8]><!--><!--<![endif]-->
+<html class="no-js" ng-app="myApp"> 
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,12 +47,13 @@
 	<![endif]-->
 	<!-- AngularJS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+	<!-- Firebase -->
 	<script type="module" src="module/firebase.js"></script>
 
 </head>
 
-<body ng-app="myApp">
-	<div id="fh5co-page" ng-controller="myController">
+<body >
+	<div id="fh5co-page" ng-controller="indexController">
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
@@ -364,7 +364,8 @@
 	<!-- MAIN JS -->
 	<script src="js/main.js"></script>
 
-	<script type="module" src="module/angularjs/mainjs.js" ></script>
+	<!-- Angular Main JS -->
+	<script type="module" src="module/angularjs/app.js" ></script>
 
 </body>
 
