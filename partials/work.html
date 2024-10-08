@@ -1,0 +1,89 @@
+<style>
+    @keyframes titleAnimation {
+        0% {
+            transform: scale(1);
+            color: #28a745;
+        }
+        50% {
+            transform: scale(1.1);
+            color: #ffc107;
+        }
+        100% {
+            transform: scale(1);
+            color: #28a745;
+        }
+    }
+
+    @keyframes descriptionAnimation {
+        0%, 100% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
+
+    .animated-title {
+        animation: titleAnimation 3s infinite;
+    }
+
+    .animated-description {
+        animation: descriptionAnimation 3s infinite;
+        animation-delay: 1.5s; /* Để mô tả bắt đầu sau tiêu đề */
+    }
+</style>
+
+<div id="fh5co-main">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-12 text-center">
+                <h1 class="display-4 animated-title">
+                    📖 Danh Sách Từ Vựng 📖
+                </h1>
+                <p class="lead text-muted animated-description">
+                    ⭐⭐⭐⭐⭐
+                </p>
+            </div>
+
+            
+
+            <div class="col-md-12 vocabulary-table">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Từ vựng</th>
+                            <th class="text-center">Nghĩa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Từ vựng 1</td>
+                            <td>Nghĩa của từ vựng 1</td>
+                        </tr>
+                        <tr>
+                            <td>Từ vựng 2</td>
+                            <td>Nghĩa của từ vựng 2</td>
+                        </tr>
+                        <tr>
+                            <td>Từ vựng 3</td>
+                            <td>Nghĩa của từ vựng 3</td>
+                        </tr>
+                        <tr>
+                            <td>Từ vựng 4</td>
+                            <td>Nghĩa của từ vựng 4</td>
+                        </tr>
+                        <tr>
+                            <td>Từ vựng 5</td>
+                            <td>Nghĩa của từ vựng 5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-md-12 text-center">
+                <a href="#!" class="btn btn-primary">Thêm từ vựng mới</a>
+            </div>
+        </div>
+    </div>
+</div>

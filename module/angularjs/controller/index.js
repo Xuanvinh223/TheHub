@@ -2,8 +2,6 @@ import { database, ref, set, push, remove, onValue } from 'https://xuanvinh223.g
 
 
 function indexController($scope) {
-    $scope.message = "Hello world!";
-    console.log(database); // Giả sử biến `database` có sẵn trong môi trường
 }
 
-export {indexController}
+export { indexController }
