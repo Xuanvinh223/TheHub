@@ -1,0 +1,98 @@
+<style>
+    @keyframes titleAnimation {
+        0% {
+            transform: scale(1);
+            color: #28a745;
+        }
+
+        50% {
+            transform: scale(1.1);
+            color: #ffc107;
+        }
+
+        100% {
+            transform: scale(1);
+            color: #28a745;
+        }
+    }
+
+    @keyframes descriptionAnimation {
+
+        0%,
+        100% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+    }
+
+    .animated-title {
+        animation: titleAnimation 3s infinite;
+    }
+
+    .animated-description {
+        animation: descriptionAnimation 3s infinite;
+        animation-delay: 1.5s;
+        /* Để mô tả bắt đầu sau tiêu đề */
+    }
+</style>
+
+<div id="fh5co-main" ng-controller="listController">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-12 text-center">
+                <h1 class="display-4 animated-title">
+                    📖 Danh Sách Từ Vựng 📖
+                </h1>
+                <p class="lead text-muted animated-description">
+                    ⭐⭐⭐⭐⭐
+                </p>
+            </div>
+
+
+
+            <div class="col-md-12 vocabulary-table">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Từ vựng</th>
+                            <th class="text-center">Nghĩa</th>
+                            <th class="text-center">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr ng-repeat="vocab in vocabularyList">
+                            <td>{{ vocab.word }}</td>
+                            <td>{{ vocab.meaning }}</td>
+                            <td class="text-center">
+                                <input type="button" value="Xóa" class="btn btn-danger" ng-click="deleteVocabulary(vocab.key)" width="35%">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div ng-if="isLoading" class="text-center">
+                <p>Loading...</p>
+            </div>
+
+            <div ng-if="!isLoading" class="col-md-12">
+                <form ng-submit="addVocabulary()">
+                    <div class="form-group">
+                        <label for="vocabulary">Từ vựng mới:</label>
+                        <input type="text" class="form-control" id="vocabulary" ng-model="newVocabulary.word" placeholder="Nhập từ vựng" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="meaning">Nghĩa của từ:</label>
+                        <input type="text" class="form-control" id="meaning" ng-model="newVocabulary.meaning" placeholder="Nhập nghĩa của từ" required>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Thêm từ vựng</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

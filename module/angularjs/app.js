@@ -1,4 +1,5 @@
 import { indexController } from "./controller/index.js";
+import { ListController } from "./controller/list.js";
 
 const app = angular.module('myApp', ['ngRoute']);
 
@@ -16,8 +17,11 @@ app.config(function ($routeProvider) {
         .when('/contact', {
             templateUrl: 'partials/contact.html'
         })
-        .when('/work', {
-            templateUrl: 'partials/work.html'
+        .when('/list', {
+            templateUrl: 'partials/list.html'
+        })
+        .when('/add', {
+            templateUrl: 'partials/add.html'
         })
         .otherwise({
             redirectTo: '/'
@@ -25,3 +29,4 @@ app.config(function ($routeProvider) {
 });
 
 app.controller("indexController", indexController);
+app.controller("listController", ListController);
