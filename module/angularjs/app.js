@@ -1,7 +1,7 @@
 import { indexController } from "./controller/index.js";
 import { ListController } from "./controller/list.js";
 
-const app = angular.module('myApp', ['ngRoute']);
+const app = angular.module('myApp', ['ngRoute','angularUtils.directives.dirPagination']);
 
 app.config(function ($routeProvider) {
     $routeProvider

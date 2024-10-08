@@ -50,11 +50,12 @@
                 <p class="lead text-muted animated-description">
                     ⭐⭐⭐⭐⭐
                 </p>
+                <!-- Tìm kiếm -->
+                <input type="text" ng-model="searchKeyword" class="form-control" placeholder="Tìm kiếm từ vựng...">
             </div>
 
-
-
             <div class="col-md-12 vocabulary-table">
+
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
@@ -64,16 +65,24 @@
                         </tr>
                     </thead>
                     <tbody class="text-center">
-                        <tr ng-repeat="vocab in vocabularyList">
+                        <tr
+                            dir-paginate="vocab in filteredVocabList = (vocabularyList | filter:searchKeyword) | itemsPerPage: 5">
                             <td>{{ vocab.word }}</td>
                             <td>{{ vocab.meaning }}</td>
                             <td class="text-center">
-                                <input type="button" value="Xóa" class="btn btn-danger" ng-click="deleteVocabulary(vocab.key)">
-                                <input type="button" value="Cập nhật" class="btn btn-warning" ng-click="selectVocabulary(vocab)" width="35%">
+                                <input type="button" value="Xóa" class="btn btn-danger"
+                                    ng-click="deleteVocabulary(vocab.key)">
+                                <input type="button" value="Cập nhật" class="btn btn-warning"
+                                    ng-click="selectVocabulary(vocab)" width="35%">
                             </td>
                         </tr>
                     </tbody>
                 </table>
+
+                <!-- Phân trang -->
+                <div class="text-center">
+                    <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
+                </div>
             </div>
 
             <div ng-if="isLoading" class="text-center">
@@ -84,11 +93,13 @@
                 <form id="vocabulary-form" ng-submit="submitVocabulary()">
                     <div class="form-group">
                         <label for="vocabulary">Từ vựng:</label>
-                        <input type="text" class="form-control" id="vocabulary" ng-model="currentVocabulary.word" ng-value="selectedVocabulary.word" placeholder="Nhập từ vựng" required>
+                        <input type="text" class="form-control" id="vocabulary" ng-model="currentVocabulary.word"
+                            ng-value="selectedVocabulary.word" placeholder="Nhập từ vựng" required>
                     </div>
                     <div class="form-group">
                         <label for="meaning">Nghĩa của từ:</label>
-                        <input type="text" class="form-control" id="meaning" ng-model="currentVocabulary.meaning" ng-value="selectedVocabulary.meaning" placeholder="Nhập nghĩa của từ" required>
+                        <input type="text" class="form-control" id="meaning" ng-model="currentVocabulary.meaning"
+                            ng-value="selectedVocabulary.meaning" placeholder="Nhập nghĩa của từ" required>
                     </div>
                     <button type="submit" class="btn btn-success btn-block">
                         {{ selectedVocabulary ? 'Cập nhật từ vựng' : 'Thêm từ vựng' }}
