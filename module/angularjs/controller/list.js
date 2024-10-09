@@ -21,7 +21,7 @@ function ListController($scope) {
                         meaning: data[key].meaning
                     }));
                 } else {
-                    $scope.vocabularyList = {};
+                    $scope.vocabularyList = [];
                 }
                 $scope.$apply(); // Cập nhật giao diện
             })
@@ -65,7 +65,6 @@ function ListController($scope) {
             })
             .finally(() => {
                 $scope.isLoading = false; // Kết thúc loading
-                $scope.$apply(); // Cập nhật giao diện
             });
     };
 

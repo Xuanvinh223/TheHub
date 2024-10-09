@@ -50,12 +50,14 @@
                 <p class="lead text-muted animated-description">
                     ⭐⭐⭐⭐⭐
                 </p>
-                <!-- Tìm kiếm -->
-                <input type="text" ng-model="searchKeyword" class="form-control" placeholder="Tìm kiếm từ vựng...">
+            </div>
+
+            <div class="col-md-12 text-center">
+                <input type="text" ng-model="searchKeyword" class="form-control" placeholder="Tìm kiếm từ vựng..." />
             </div>
 
             <div class="col-md-12 vocabulary-table">
-
+                
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
@@ -65,23 +67,21 @@
                         </tr>
                     </thead>
                     <tbody class="text-center">
-                        <tr
-                            dir-paginate="vocab in filteredVocabList = (vocabularyList | filter:searchKeyword) | itemsPerPage: 5">
+                        <tr dir-paginate="vocab in vocabularyList | filter:searchKeyword | itemsPerPage: 5">
                             <td>{{ vocab.word }}</td>
                             <td>{{ vocab.meaning }}</td>
                             <td class="text-center">
-                                <input type="button" value="Xóa" class="btn btn-danger"
-                                    ng-click="deleteVocabulary(vocab.key)">
-                                <input type="button" value="Cập nhật" class="btn btn-warning"
-                                    ng-click="selectVocabulary(vocab)" width="35%">
+                                <input type="button" value="Xóa" class="btn btn-danger" ng-click="deleteVocabulary(vocab.key)">
+                                <input type="button" value="Cập nhật" class="btn btn-warning" ng-click="selectVocabulary(vocab)" width="35%">
                             </td>
                         </tr>
                     </tbody>
                 </table>
 
-                <!-- Phân trang -->
+                <!-- Hiển thị các nút phân trang -->
                 <div class="text-center">
-                    <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
+                    <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true">
+                    </dir-pagination-controls>
                 </div>
             </div>
 
