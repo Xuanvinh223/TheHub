@@ -1,4 +1,7 @@
 {
-    "GREETING": "Xin chào",
-    "WELCOME_MESSAGE": "Chào mừng bạn đến với website của chúng tôi!"
-}
+    "HOME": "Trang chủ",
+    "PORTFOLIO": "Danh mục đầu tư",
+    "ABOUT": "Giới thiệu",
+    "CONTACT": "Liên hệ"
+  }
+  

@@ -1,4 +1,7 @@
 {
-    "GREETING": "Hello world",
-    "WELCOME_MESSAGE": "Welcome to our website!"
-}
+    "HOME": "Home",
+    "PORTFOLIO": "Portfolio",
+    "ABOUT": "About",
+    "CONTACT": "Contact"
+  }
+  
