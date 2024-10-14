@@ -3,6 +3,22 @@ import { ListController } from "./controller/list.js";
 
 const app = angular.module('myApp', ['ngRoute','angularUtils.directives.dirPagination']);
 
+// Dịch vụ tải bản dịch
+app.factory('translateService', function($http, $q) {
+    var service = {
+        getTranslation: function(language) {
+            var deferred = $q.defer();
+            $http.get('module/angularjs/locale/' + language + '.json').then(function(response) {
+                deferred.resolve(response.data);
+            }, function(error) {
+                deferred.reject(error);
+            });
+            return deferred.promise;
+        }
+    };
+    return service;
+});
+
 app.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
